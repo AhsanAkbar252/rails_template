@@ -1,0 +1,32 @@
+<div class="bg-white shadow-sm sticky top-0">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1 md:py-4">
+    <div class="flex items-center justify-between md:justify-start">
+      <!-- Menu Trigger -->
+      <button type="button" class="md:hidden w-10 h-10 rounded-lg -ml-2 flex justify-center items-center">
+        <svg class="text-gray-500 w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <!-- ./ Menu Trigger -->
+
+      <a href="#" class="font-bold text-gray-700 text-2xl">Shop.</a>
+
+      <div class="hidden md:flex space-x-3 flex-1 lg:ml-8">
+        <a href="<%= products_path %>" class="px-2 py-2 hover:bg-gray-100 rounded-lg text-gray-400 hover:text-gray-600">Products</a>
+        <a href="<%= orders_path %>" class="px-2 py-2 hover:bg-gray-100 rounded-lg text-gray-400 hover:text-gray-600">Orders</a>
+        <a href="<%= cart_path %>" class="px-2 py-2 hover:bg-gray-100 rounded-lg text-gray-400 hover:text-gray-600">Cart</a>
+      </div>
+
+      <div class="flex items-center space-x-4">
+        <% if user_signed_in? %>
+        Logged in as <strong><%= current_user.email %></strong>.
+        <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "hidden md:block w-20 h-10 rounded-lg bg-red-100 border border-gray-200 flex justify-center items-center"  %>
+        <% else %>
+        <%= button_to "Sign up", new_user_registration_path, class: "hidden md:block w-20 h-10 rounded-lg bg-blue-100 border border-gray-200 flex justify-center items-center"  %>
+        <%= button_to "Login", new_user_session_path, class: "hidden md:block w-20 h-10 rounded-lg bg-green-100 border border-gray-200 flex justify-center items-center"  %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,8 +1,19 @@
 module.exports = {
+  mode: 'jit',
+  purge: ['./app/**/*.html.erb', './app/**/*.html.slim', './app/**/*.rb'],
+  darkMode: false,
   content: [
-    './app/views/**/*.html.erb',
     './app/helpers/**/*.rb',
-    './app/assets/stylesheets/**/*.css',
-    './app/javascript/**/*.js'
-  ]
+    './app/javascript/*.js',
+    './app/views/**/*',
+  ],
+  theme: {
+    extend: {},
+  },
+  variants: {
+    extend: {},
+  },
+  plugins: [
+    require('@tailwindcss/aspect-ratio')
+  ],
 }
